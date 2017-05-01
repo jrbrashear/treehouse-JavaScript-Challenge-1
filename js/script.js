@@ -11,7 +11,7 @@ var quotes = [
   {quote: "By trying we can easily learn to endure adversity.  Another man's, I mean.",
   source: "Mark Twain", citation: "Mark Twain Calendar", year: "1917" },
   {quote: "In Paris they just simply opened their eyes and stared when we spoke to them in French! We never did succeed in making those idiots understand their own language.",
-  source: "Mark Twain", citation: "The Innocents Abroad", }
+  source: "Mark Twain", citation: "The Innocents Abroad" }
 ]
 
 function getRandomQuote()
@@ -24,14 +24,20 @@ function getRandomQuote()
 
  function printQuote(message) {
    var message = getRandomQuote();
-   vYear = "";
-   if (message.year != null){vYear = message.year};
+   //set variable for message.citation & citation class
+   vCitation = ""; vCitationClass = "";
+   if (message.citation != null){vCitation = message.citation; vCitationClass = "citation"; }
+
+   //set variable for message.year
+   vYear = ""; vYearClass = "";
+   if (message.year != null){vYear = message.year; vYearClass = "year";}
+
+   //build html string
    var html = '<p class = "quote">' + message.quote + '</p> <p class = "source">'+ message.source +
-   '<span class = "citation">'+message.citation + '</span><span class = "year">' + vYear +'</span>';
+   '<span class ='+ vCitationClass +'>'+ vCitation + '</span><span class = '+ vYearClass +'>' + vYear +'</span>';
 
-
+   //assign html to quote-box
    document.getElementById('quote-box').innerHTML = html;
 
-  
-     console.log(message);
+
    }
