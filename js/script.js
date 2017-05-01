@@ -20,14 +20,18 @@ function getRandomQuote()
    return randomQuote;
  };
 
- function printQuote() {
-   var printQuote = getRandomQuote();
-   printQuote += '<p class="quote">' + printQuote.quote + ' </p>;'
-   return printQuote;
-
- };
-
- 
 
 
-console.log(printQuote());
+ function printQuote(message) {
+   var message = getRandomQuote();
+   vYear = "";
+   if (message.year != null){vYear = message.year};
+   var html = '<p class = "quote">' + message.quote + '</p> <p class = "source">'+ message.source +
+   '<span class = "citation">'+message.citation + '</span><span class = "year">' + vYear +'</span>';
+
+
+   document.getElementById('quote-box').innerHTML = html;
+
+  
+     console.log(message);
+   }
